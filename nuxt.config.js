@@ -1,7 +1,11 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  target: 'static',
+  router: {
+    base: '/vue-components/'
+  },
   head: {
-    title: 'nuxt-study',
+    title: 'vue-components',
     htmlAttrs: {
       lang: 'en'
     },
