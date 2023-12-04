@@ -199,7 +199,7 @@ export default {
         this.swiper.autoplay.stop()
         this.kvProgress2 = false
       } catch (err) {
-        console.error(err)
+        // console.error(err)
       }
     },
 
@@ -209,7 +209,7 @@ export default {
         this.kvProgress2 = true
         this.kvAutoplay2 = false
       } catch (err) {
-        console.error(err)
+        // console.error(err)
       }
     }
   }

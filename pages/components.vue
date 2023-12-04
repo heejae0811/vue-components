@@ -13,7 +13,7 @@
       <BaseButton
         color="black"
         @click="ModalCookieToggle">
-        쿠키 모달 열기
+        모달 열기
       </BaseButton>
 
       <ModalCookie
@@ -48,7 +48,9 @@
           </p>
         </BaseAccordion>
       </div>
+    </section>
 
+    <section v-if="currentTab === 2">
       <div class="select">
         <BaseSelect
           :options="selectList"
@@ -98,7 +100,8 @@ export default {
       currentTab: 0,
       tab: [
         { name: '탭 1' },
-        { name: '탭 2' }
+        { name: '탭 2' },
+        { name: '탭 3' }
       ],
 
       // Select
