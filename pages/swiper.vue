@@ -1,7 +1,8 @@
 <template>
   <TheLayout>
-    <section class="kv-swiper">
-      <Swiper :options="kvSwiperOptions">
+    <!-- kv-swiper1[s] -->
+    <section class="kv-swiper1">
+      <Swiper :options="kvSwiperOption1">
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
@@ -9,15 +10,17 @@
         <SwiperSlide>Slide 5</SwiperSlide>
       </Swiper>
 
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev swiper-button-prev1"></div>
+      <div class="swiper-button-next swiper-button-next1"></div>
 
-      <div class="swiper-pagination"></div>
+      <div class="swiper-pagination swiper-pagination1"></div>
     </section>
+    <!-- kv-swiper1[e] -->
 
-    <section class="kv-swiper1">
+    <!-- kv-swiper2[s] -->
+    <section class="kv-swiper2">
       <Swiper
-        :options="kvSwiperOptions1"
+        :options="kvSwiperOption2"
         ref="kvSwiper">
         <SwiperSlide>Slide 1</SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
@@ -26,22 +29,24 @@
 
       <div class="kv-function">
         <div
-          class="swiper-autoplay"
-          :class="{ stop: kvAutoplay }"
-          @click="kvSwiperAutoplay">
+          class="swiper-autoplay2"
+          :class="{ stop: kvAutoplay2 }"
+          @click="kvSwiperAutoplay2">
           <span/>
         </div>
         <div
-          class="swiper-pagination1"
-          :class="{ stop: kvPagination }"
+          class="swiper-pagination2"
+          :class="{ stop: kvPagination2 }"
           slot="pagination"/>
       </div>
     </section>
+    <!-- kv-swiper2[e] -->
 
-    <section class="kv-swiper2">
+    <!-- kv-swiper3[s] -->
+    <section class="kv-swiper3">
       <div
         v-once
-        v-swiper:swiper="kvSwiperOption2"
+        v-swiper:swiper="kvSwiperOption3"
         class="swiper-container">
         <ul class="swiper-wrapper">
           <li class="swiper-slide">Slide 1</li>
@@ -52,27 +57,28 @@
 
       <div class="swiper-function">
         <div
-          class="swiper-autoplay"
-          :class="{ stop: kvAutoplay2 }"
-          @click="kvSwiperAutoplay2">
+          class="swiper-autoplay3"
+          :class="{ stop: kvAutoplay3 }"
+          @click="kvSwiperAutoplay3">
           <span/>
         </div>
 
         <div
           class="swiper-progress"
-          :class="{ start: kvProgress2 }">
+          :class="{ start: kvProgress3 }">
           <span class="bar"/>
         </div>
 
-        <div class="swiper-pagination2"/>
+        <div class="swiper-pagination3"/>
       </div>
     </section>
+    <!-- kv-swiper3[e] -->
   </TheLayout>
 </template>
 
 <script>
-import TheLayout from '@/components/layout/TheLayout'
 import Vue from 'vue'
+import TheLayout from '@/components/layout/TheLayout'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
@@ -90,26 +96,27 @@ export default {
 
   data() {
     return {
-      kvSwiperOptions: {
+      // kv1 swiper options
+      kvSwiperOption1: {
         slidesPerView: 2,
         spaceBetween: 20,
         loop: true,
         navigation: {
-          prevEl: '.swiper-button-prev',
-          nextEl: '.swiper-button-next'
+          prevEl: '.swiper-button-prev1',
+          nextEl: '.swiper-button-next1'
         },
         pagination: {
-          el: '.swiper-pagination',
+          el: '.swiper-pagination1',
           clickable: true
         }
       },
 
-      // kv autoplay, pagination 1
-      kvAutoplay: false,
-      kvPagination: false,
+      // kv2 autoplay, pagination
+      kvAutoplay2: false,
+      kvPagination2: false,
 
-      // kv swiper options 1
-      kvSwiperOptions1: {
+      // kv2 swiper options
+      kvSwiperOption2: {
         effect: 'fade',
         slidesPerView: 1,
         spaceBetween: 0,
@@ -119,7 +126,7 @@ export default {
           disableOnInteraction: false
         },
         pagination: {
-          el: '.swiper-pagination1',
+          el: '.swiper-pagination2',
           clickable: true,
           paginationType: 'custom',
           renderBullet: function () {
@@ -133,12 +140,12 @@ export default {
         }
       },
 
-      // Kv autoplay, progress 2
-      kvAutoplay2: false,
-      kvProgress2: false,
+      // kv3 autoplay, progress
+      kvAutoplay3: false,
+      kvProgress3: false,
 
-      // Kv swiper option 2
-      kvSwiperOption2: {
+      // kv3 swiper option
+      kvSwiperOption3: {
         effect: 'fade',
         slidesPerView: 1,
         spaceBetween: 0,
@@ -147,7 +154,7 @@ export default {
           delay: 5000
         },
         pagination: {
-          el: '.swiper-pagination2',
+          el: '.swiper-pagination3',
           type: 'fraction'
         },
         on: {
@@ -161,33 +168,34 @@ export default {
   },
 
   computed: {
+    // kv2
     kvSwiper() {
       return this.$refs.kvSwiper.$swiper
     }
   },
 
   methods: {
-    // kv swiper options 1
-    kvSwiperAutoplay() {
-      this.kvAutoplay = !this.kvAutoplay
-      this.kvPagination = !this.kvPagination
+    // kv2
+    kvSwiperAutoplay2() {
+      this.kvAutoplay2 = !this.kvAutoplay2
+      this.kvPagination2 = !this.kvPagination2
 
-      if (this.kvAutoplay) {
+      if (this.kvAutoplay2) {
         this.kvSwiper.autoplay.stop()
       } else {
         this.kvSwiper.autoplay.start()
       }
     },
 
-    // kv swiper options 2
+    // kv3
     init() {
-      this.kvProgress2 = true
+      this.kvProgress3 = true
     },
 
-    kvSwiperAutoplay2() {
-      this.kvAutoplay2 = !this.kvAutoplay2
+    kvSwiperAutoplay3() {
+      this.kvAutoplay3 = !this.kvAutoplay3
 
-      if (this.kvProgress2) {
+      if (this.kvProgress3) {
         this.stopAutoplay()
       } else {
         this.startAutoplay()
@@ -197,19 +205,19 @@ export default {
     stopAutoplay() {
       try {
         this.swiper.autoplay.stop()
-        this.kvProgress2 = false
+        this.kvProgress3 = false
       } catch (err) {
-        // console.error(err)
+        console.error(err)
       }
     },
 
     startAutoplay() {
       try {
         this.swiper.autoplay.start()
-        this.kvProgress2 = true
-        this.kvAutoplay2 = false
+        this.kvProgress3 = true
+        this.kvAutoplay3 = false
       } catch (err) {
-        // console.error(err)
+        console.error(err)
       }
     }
   }
@@ -217,7 +225,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.kv-swiper {
+// kv1
+.kv-swiper1 {
   position: relative;
   height: 300px;
   margin-bottom: 50px;
@@ -226,7 +235,11 @@ export default {
     height: 100%;
 
     .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 20px;
+      font-size: 20px;
 
       &:nth-child(odd) {
         background-color: darksalmon;
@@ -238,14 +251,14 @@ export default {
     }
   }
 
-  .swiper-button-prev,
-  .swiper-button-next {
+  .swiper-button-prev1,
+  .swiper-button-next1 {
     &::after {
       color: #333;
     }
   }
 
-  .swiper-pagination::v-deep {
+  .swiper-pagination1::v-deep {
     bottom: -30px;
     width: 100%;
 
@@ -260,6 +273,7 @@ export default {
   }
 }
 
+// kv2
 @keyframes loading {
   0% {
     stroke-dashoffset: 192;
@@ -269,7 +283,7 @@ export default {
   }
 }
 
-.kv-swiper1 {
+.kv-swiper2 {
   position: relative;
   height: 300px;
   margin-bottom: 50px;
@@ -278,7 +292,11 @@ export default {
     height: 100%;
 
     .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 20px;
+      font-size: 20px;
 
       &:nth-child(odd) {
         background-color: darksalmon;
@@ -295,11 +313,11 @@ export default {
     gap: 5px;
     position: absolute;
     left: 50%;
-    bottom: 30px;
+    bottom: 20px;
     z-index: 1;
     transform: translateX(-50%);
 
-    .swiper-autoplay {
+    .swiper-autoplay2 {
       position: relative;
       width: 24px;
       height: 24px;
@@ -336,19 +354,17 @@ export default {
           transform: translate(-50%, -50%);
           border-top: 5px solid transparent;
           border-bottom: 5px solid transparent;
-          border-left: 7px solid #fff;
+          border-left: 8px solid #fff;
 
           &::before,
           &::after {
-            width: auto;
-            height: auto;
-            background: none;
+            display: none;
           }
         }
       }
     }
 
-    .swiper-pagination1::v-deep {
+    .swiper-pagination2::v-deep {
       display: flex;
       align-items: center;
       position: relative;
@@ -401,6 +417,7 @@ export default {
   }
 }
 
+// kv3
 @keyframes kvProgress {
   from {
     transform: translateX(-100%);
@@ -410,7 +427,7 @@ export default {
   }
 }
 
-.kv-swiper2 {
+.kv-swiper3 {
   position: relative;
   height: 300px;
 
@@ -418,7 +435,11 @@ export default {
     height: 100%;
 
     .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 20px;
+      font-size: 20px;
 
       &:nth-child(odd) {
         background-color: darksalmon;
@@ -432,16 +453,16 @@ export default {
 
   .swiper-function {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 20px;
     position: absolute;
     left: 50%;
-    bottom: 30px;
+    bottom: 20px;
     z-index: 10;
     transform: translateX(-50%);
-    width: fit-content;
 
-    .swiper-autoplay {
+    .swiper-autoplay3 {
       position: relative;
       cursor: pointer;
 
@@ -495,8 +516,7 @@ export default {
       }
     }
 
-    .swiper-pagination2 {
-      position: initial;
+    .swiper-pagination3 {
       width: fit-content;
       color: #fff;
     }

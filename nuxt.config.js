@@ -5,18 +5,21 @@ export default {
     base: '/vue-components/'
   },
   head: {
-    title: 'vue-components',
+    title: 'Vue/Nuxt Components',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'description', content: 'Vue/Nuxt 컴포넌트입니다.' },
+      { property: 'og:title', content: 'Vue/Nuxt Components'},
+      { property: 'og:description', content: 'Vue/Nuxt 컴포넌트입니다.'},
+      { property: 'og:image', content: 'https://heejae0811.github.io/vue-components/meta.jpg'}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: 'https://heejae0811.github.io/vue-components/favicon.ico' }
     ]
   },
 
