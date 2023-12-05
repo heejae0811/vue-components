@@ -13,9 +13,9 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'format-detection', content: 'telephone=no' },
-      { name: 'description', content: 'Vue/Nuxt 컴포넌트입니다.' },
+      { name: 'description', content: '뷰/넉스트 컴포넌트입니다.' },
       { property: 'og:title', content: 'Vue/Nuxt Components'},
-      { property: 'og:description', content: 'Vue/Nuxt 컴포넌트입니다.'},
+      { property: 'og:description', content: '뷰/넉스트 컴포넌트입니다.'},
       { property: 'og:image', content: 'https://heejae0811.github.io/vue-components/meta.jpg'}
     ],
     link: [
